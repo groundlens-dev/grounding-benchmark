@@ -64,7 +64,3 @@ If you use or extend this benchmark in published work, please cite the paper:
   url          = {https://github.com/Javihaus/cert-confabulation-benchmark}
 }
 ```
-
-## License
-
-By contributing, you agree that your contributions will be licensed under CC BY 4.0 (dataset) and MIT (code), consistent with the existing project licenses.
