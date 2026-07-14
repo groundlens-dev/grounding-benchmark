@@ -8,7 +8,7 @@ Following the framework proposed by [Gebru et al. (2021)](https://arxiv.org/abs/
 To provide the first hallucination detection benchmark where the false content is produced by a human rather than an LLM. Existing benchmarks (HaluEval, HaluBench, HalluLens) generate false content by prompting LLMs, which may introduce detectable generation artifacts that inflate detection accuracy. This dataset removes that confound.
 
 **Who created the dataset and on behalf of which entity?**
-Javier Marín, as part of the CERT framework for hallucination detection in production LLM deployments.
+Javier Marín, as part of the Groundlens research programme on grounding verification in production LLM deployments.
 
 **Who funded the creation of the dataset?**
 Self-funded independent research.
@@ -34,7 +34,11 @@ Yes, implicitly. The `grounded_response` is the correct answer and the `fabricat
 No.
 
 **Are there any errors, sources of noise, or redundancies?**
-The dataset was produced by a single confabulator, whose stylistic patterns may introduce person-specific artifacts. Response lengths were not explicitly controlled but are comparable across grounded and confabulated responses (grounded: mean 55.6 words; confabulated: mean 57.3 words).
+**Authorship is a confound.** Every grounded response was written by a language model (Claude Sonnet 4.5) and every confabulation was written by a person. Authorship is therefore perfectly correlated with the label, and a detector can score highly on this dataset by recognising who wrote the text rather than whether it is grounded. Using three confabulators instead of one reduces person-specific style artifacts; it does **not** remove the machine-versus-human split, which is the confound that matters.
+
+Do not report a number on this dataset without an authorship-matched control. In *The Register Wall* (under review), a logistic probe scores 0.932 here and falls to 0.660 under that control; an MLP falls from 0.935 to 0.675; a directional embedding score falls to 0.606.
+
+Confabulations were written by three non-expert annotators, each assigned to domains outside their field; the annotator who verified a domain never authored its confabulations. Response lengths were not explicitly controlled but are comparable across classes (grounded: mean 55.6 words; confabulated: mean 57.3 words).
 
 **Is the dataset self-contained?**
 Yes. No external data is required.
@@ -81,7 +85,7 @@ The dataset should not be used as a knowledge base or source of factual informat
 ## Distribution
 
 **How will the dataset be distributed?**
-Via GitHub at https://github.com/Javihaus/cert-confabulation-benchmark.
+Via GitHub at https://github.com/groundlens-dev/grounding-benchmark.
 
 **When was the dataset first released?**
 April 2026.
