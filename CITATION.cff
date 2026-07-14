@@ -6,8 +6,8 @@ authors:
   - family-names: "Marín"
     given-names: "Javier"
     email: "javier@jmarin.info"
-url: "https://github.com/Javihaus/cert-confabulation-benchmark"
-repository-code: "https://github.com/Javihaus/cert-confabulation-benchmark"
+url: "https://github.com/groundlens-dev/grounding-benchmark"
+repository-code: "https://github.com/groundlens-dev/grounding-benchmark"
 license: CC-BY-4.0
 date-released: "2026-04-21"
 keywords:
